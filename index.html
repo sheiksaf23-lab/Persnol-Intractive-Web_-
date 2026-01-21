@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love 💖</title>
+
+<style>
+/* ---------- BODY ---------- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #ffb6d5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ---------- FLOATING HEARTS ---------- */
+.hearts-bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hearts-bg span {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.3;
+    animation: float 12s linear infinite;
+}
+
+.hearts-bg span:nth-child(1){left:10%; animation-delay:0s;}
+.hearts-bg span:nth-child(2){left:30%; animation-delay:2s;}
+.hearts-bg span:nth-child(3){left:50%; animation-delay:4s;}
+.hearts-bg span:nth-child(4){left:70%; animation-delay:6s;}
+.hearts-bg span:nth-child(5){left:90%; animation-delay:8s;}
+
+@keyframes float {
+    from { top:100%; transform:scale(1); }
+    to   { top:-10%; transform:scale(1.2); }
+}
+
+/* ---------- CARD ---------- */
+.card {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #ff4d88;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* ---------- MUSIC BUTTON ---------- */
+.music-btn {
+    margin: 15px 0;
+    padding: 12px 20px;
+    background: #ff4d88;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.music-btn:hover {
+    background: #e63b75;
+}
+
+/* ---------- PHOTOS ---------- */
+.photos {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.photos img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+    border: 2px solid #ffb6d5;
+    background: #ffe6f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.photos img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255,77,136,0.6);
+}
+
+/* ---------- FINAL MESSAGE ---------- */
+.final-message {
+    margin-top: 25px;
+    padding: 18px;
+    background: #ffe6f0;
+    border-radius: 18px;
+    border: 1px solid #ffb6d5;
+}
+
+.final-message p {
+    margin: 0;
+    color: #ff4d88;
+    font-style: italic;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    margin-top: 20px;
+    color: #ff4d88;
+    font-size: 14px;
+}
+
+.heart {
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+/* ---------- FULLSCREEN IMAGE ---------- */
+#imgModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#imgModal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,182,213,0.6);
+}
+
+/* ---------- MOBILE OPTIMIZATION ---------- */
+@media (max-width:600px) {
+    h1 { font-size:22px; }
+    p  { font-size:15px; }
+    .photos img { height:180px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND HEARTS -->
+<div class="hearts-bg">
+    <span>💗</span>
+    <span>💖</span>
+    <span>💕</span>
+    <span>💘</span>
+    <span>💝</span>
+</div>
+
+<div class="card">
+    <h1>En Qaulbiyeee💕</h1>
+
+    <p>
+        "Ennai Manipayaa En Uyirey 🫴🏼"  <br>
+        "Nan Seithathu Thappu Than Unnai Nan Manathalavul Megavum Kayam Paduthiruken 😔" <br>
+        "Un Kelavanuku Konjam Brain Work Aagala Ma 🥹" <br>
+        "I Love You My Kelaviii 🌷"
+
+    </p>
+
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        Play Music 💗
+    </button>
+
+    <audio id="bgMusic" loop>
+        <source src="love.m4a" type="audio/mpeg">
+    </audio>
+
+    <div class="photos">
+        <img src="IMG_0412.jpg" onclick="openImg(this)">
+        <img src="IMG_0416.jpg" onclick="openImg(this)">
+        <img src="IMG_0419.jpg" onclick="openImg(this)">
+        <img src="IMG_9932.JPG" onclick="openImg(this)">
+    </div>
+
+    <div class="final-message">
+        <p>
+            En Thozhiyee 💜 En Aravanaipeyyy 🤍 En Thayee 🩷 ,<br>
+            you will always be my closefriend and my wife 💗
+        </p>
+    </div>
+
+    <div class="footer">
+        Made with <span class="heart">❤️</span> just for you
+    </div>
+</div>
+
+<!-- FULLSCREEN IMAGE MODAL -->
+<div id="imgModal" onclick="closeImg()">
+    <img id="modalImg">
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = "Pause Music 💕";
+    } else {
+        music.pause();
+        btn.innerHTML = "Play Music 💗";
+    }
+}
+
+function openImg(img) {
+    document.getElementById("imgModal").style.display = "flex";
+    document.getElementById("modalImg").src = img.src;
+}
+
+function closeImg() {
+    document.getElementById("imgModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
